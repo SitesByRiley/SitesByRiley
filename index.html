@@ -483,55 +483,7 @@
     gap: 80px;
     align-items: center;
   }
-  .riley-photo-wrap {
-    position: relative;
-  }
-  .riley-photo-placeholder {
-    width: 100%;
-    aspect-ratio: 4/5;
-    border-radius: var(--radius-lg);
-    background: var(--card);
-    border: 1.5px dashed rgba(37,99,235,0.35);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: var(--muted);
-    font-size: 14px;
-    text-align: center;
-    padding: 32px;
-  }
-  .riley-photo-placeholder svg { color: rgba(37,99,235,0.4); }
-  .riley-photo-placeholder code {
-    font-size: 11px;
-    background: rgba(255,255,255,0.05);
-    padding: 4px 8px;
-    border-radius: 6px;
-    display: block;
-    margin-top: 8px;
-  }
-  .about-accent-card {
-    position: absolute;
-    bottom: -24px;
-    right: -24px;
-    background: var(--blue);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    min-width: 180px;
-  }
-  .about-accent-card .num {
-    font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1;
-  }
-  .about-accent-card .lbl {
-    font-size: 13px;
-    color: rgba(255,255,255,0.75);
-    margin-top: 4px;
-  }
+
   .about-bio-name {
     font-size: 13px;
     font-weight: 600;
@@ -1049,23 +1001,9 @@
 <!-- ── About Riley ────────────────────────────────── -->
 <section id="about" class="section">
   <div class="container">
-    <div class="about-grid">
+    <div class="about-grid" style="grid-template-columns:1fr;">
 
-      <div class="riley-photo-wrap reveal">
-        <!-- ── REPLACE THIS BLOCK with an <img> tag when you have Riley's photo ── -->
-        <div class="riley-photo-placeholder">
-          <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-          <span>Riley's photo goes here</span>
-          <code>&lt;img src="YOUR_IMAGE_URL" alt="Riley Geddes" /&gt;</code>
-        </div>
-        <!-- ── END REPLACE ── -->
-        <div class="about-accent-card">
-          <div class="num">10</div>
-          <div class="lbl">years coding</div>
-        </div>
-      </div>
-
-      <div class="reveal reveal-delay-1">
+      <div class="reveal" style="max-width:680px;">
         <div class="about-bio-name">Riley Geddes &mdash; Founder</div>
         <h2 class="about-headline">Started young.<br>Still going hard.</h2>
         <p class="about-body">
