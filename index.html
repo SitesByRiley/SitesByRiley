@@ -815,6 +815,200 @@
     .process-steps { grid-template-columns: 1fr; }
     .form-card { padding: 28px 20px; }
   }
+
+  /* ── Drawer ───────────────────────────────────── */
+  .drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .drawer-backdrop.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .drawer {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(560px, 100vw);
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    z-index: 201;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    padding: 0;
+  }
+  .drawer.open {
+    transform: translateX(0);
+  }
+  .drawer-header {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+  }
+  .drawer-header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--blue-lt);
+  }
+  .drawer-close {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 18px;
+    line-height: 1;
+  }
+  .drawer-close:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+  .drawer-body { padding: 36px 28px 48px; }
+  .drawer-price-hero {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .drawer-price-big {
+    font-family: 'Syne', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--white);
+  }
+  .drawer-price-big sup {
+    font-size: 24px;
+    font-weight: 600;
+    vertical-align: super;
+  }
+  .drawer-price-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .drawer-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    line-height: 1.15;
+  }
+  .drawer-tagline {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .drawer-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    margin-top: 28px;
+  }
+  .drawer-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 4px;
+  }
+  .drawer-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 14px;
+    color: rgba(245,245,243,0.82);
+    line-height: 1.5;
+  }
+  .drawer-features li svg { color: var(--blue-lt); flex-shrink: 0; margin-top: 2px; }
+  .drawer-upgrade {
+    background: rgba(37,99,235,0.08);
+    border: 1px solid rgba(37,99,235,0.2);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 24px;
+  }
+  .drawer-upgrade-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--blue-lt);
+    margin-bottom: 8px;
+  }
+  .drawer-upgrade p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .drawer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .btn-drawer-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 15px;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .btn-drawer-primary:hover { background: var(--blue-lt); transform: translateY(-2px); }
+  .btn-drawer-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .btn-drawer-demo:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+  .btn-drawer-demo svg { flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -942,10 +1136,7 @@
           <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 2 rounds of changes</li>
           <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Delivered in ~5 days</li>
         </ul>
-        <a href="#contact" class="btn-service">Get started</a>
-      </div>
-
-      <!-- Card 2 -->
+        <button onclick="openDrawer('drawer-t1')" class="btn-service">Learn more &rarr;</button>
       <div class="service-card popular reveal reveal-delay-2">
         <div class="popular-badge">Most popular</div>
         <div class="service-icon">
@@ -965,7 +1156,7 @@
           <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 3 rounds of changes</li>
           <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Delivered in 1&ndash;2 weeks</li>
         </ul>
-        <a href="#contact" class="btn-service">Get started</a>
+        <button onclick="openDrawer('drawer-t2')" class="btn-service">Learn more &rarr;</button>
       </div>
 
       <!-- Card 3 -->
@@ -987,7 +1178,7 @@
           <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> 3 rounds of changes</li>
           <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Delivered in 2&ndash;3 weeks</li>
         </ul>
-        <a href="#contact" class="btn-service">Get started</a>
+        <button onclick="openDrawer('drawer-t3')" class="btn-service">Learn more &rarr;</button>
       </div>
 
     </div>
@@ -1220,6 +1411,141 @@
   </div>
 </footer>
 
+<!-- ── Drawer Backdrop ─────────────────────────────────── -->
+<div class="drawer-backdrop" id="drawer-backdrop" onclick="closeDrawer()"></div>
+
+<!-- ── Drawer: Tier 1 — Personal Profile Site ─────────── -->
+<div class="drawer" id="drawer-t1" role="dialog" aria-modal="true" aria-label="Personal Profile Site details">
+  <div class="drawer-header">
+    <span class="drawer-header-label">Tier 1 — Personal Profile Site</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-price-hero">
+      <div class="drawer-price-big"><sup>$</sup>349</div>
+    </div>
+    <div class="drawer-price-note">One-time payment &bull; you own the files outright &bull; no ongoing fees</div>
+    <div class="drawer-title">Personal Profile Site</div>
+    <p class="drawer-tagline">A single-page site that tells people exactly who you are and how to reach you. Clean, fast, professional — and done in about 5 days.</p>
+
+    <div class="drawer-section-title">What's included</div>
+    <ul class="drawer-features">
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Single-page design with up to 5 sections (hero, about, work/services, contact, footer)</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Built from scratch to match your brand — not a template</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fully mobile-responsive</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Contact form wired up and working</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Scroll animations and hover effects</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>2 rounds of changes after you see the first build</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Files delivered — you host it wherever you want (or I'll help)</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Delivered in approximately 5 days</li>
+    </ul>
+
+    <div class="drawer-section-title">Who this is for</div>
+    <p class="drawer-tagline" style="margin-bottom:0;">Freelancers, creatives, tradies, sole traders — anyone who needs a professional presence online and doesn't need a full multi-page business site yet. If someone Googles you, this is what they'll find.</p>
+
+    <div class="drawer-upgrade">
+      <div class="drawer-upgrade-label">Want more?</div>
+      <p>If you need multiple pages, a Google reviews section, or a more detailed services breakdown, the Business Website ($799) is the step up. You can always start here and upgrade later.</p>
+    </div>
+
+    <div class="drawer-actions">
+      <a href="#contact" class="btn-drawer-primary" onclick="closeDrawer()">Get started — $349 &rarr;</a>
+      <a href="https://sitesbyriley.github.io/Tier-1-Demo/" target="_blank" rel="noopener" class="btn-drawer-demo">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        See a real example — demo site
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Drawer: Tier 2 — Business Website ──────────────── -->
+<div class="drawer" id="drawer-t2" role="dialog" aria-modal="true" aria-label="Business Website details">
+  <div class="drawer-header">
+    <span class="drawer-header-label">Tier 2 — Business Website</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-price-hero">
+      <div class="drawer-price-big"><sup>$</sup>799</div>
+    </div>
+    <div class="drawer-price-note">One-time payment &bull; you own the files outright &bull; no ongoing fees</div>
+    <div class="drawer-title">Business Website</div>
+    <p class="drawer-tagline">A proper multi-page site for your business. Multiple pages that all link together, a real services breakdown, reviews, contact form — the works. Delivered in 1–2 weeks.</p>
+
+    <div class="drawer-section-title">What's included</div>
+    <ul class="drawer-features">
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 5 separate pages (Home, Services, About, Contact + one more)</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Built from scratch to match your brand</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fully mobile-responsive</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Google reviews section (paste in your real reviews)</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Contact form + Google Maps embed</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Page titles and meta descriptions set up for Google</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Scroll animations and polished transitions</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 rounds of changes</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Files delivered — deploy wherever you like</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Delivered in 1–2 weeks</li>
+    </ul>
+
+    <div class="drawer-section-title">How it's better than the Personal Profile</div>
+    <p class="drawer-tagline" style="margin-bottom:0;">The big difference is multiple pages — instead of one long scroll, your business gets a proper structure. Customers can navigate to what they actually need. You also get a dedicated Google reviews section, which builds trust immediately, and a full services page where you can go into as much detail as you want.</p>
+
+    <div class="drawer-upgrade">
+      <div class="drawer-upgrade-label">Want even more?</div>
+      <p>The Booking-Ready Website ($1,299) adds an online booking system so customers can book and pay a deposit directly from your site — no back-and-forth needed.</p>
+    </div>
+
+    <div class="drawer-actions">
+      <a href="#contact" class="btn-drawer-primary" onclick="closeDrawer()">Get started — $799 &rarr;</a>
+      <a href="https://sitesbyriley.github.io/Tier-2-Demo/" target="_blank" rel="noopener" class="btn-drawer-demo">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        See a real example — demo site
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Drawer: Tier 3 — Booking-Ready Website ─────────── -->
+<div class="drawer" id="drawer-t3" role="dialog" aria-modal="true" aria-label="Booking-Ready Website details">
+  <div class="drawer-header">
+    <span class="drawer-header-label">Tier 3 — Booking-Ready Website</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-price-hero">
+      <div class="drawer-price-big"><sup>$</sup>1,299</div>
+    </div>
+    <div class="drawer-price-note">One-time payment &bull; you own the files outright &bull; no ongoing fees</div>
+    <div class="drawer-title">Booking-Ready Website</div>
+    <p class="drawer-tagline">The most complete package. A full multi-page site with everything in the Business tier plus a live booking system, interactive availability calendar, deposit calculator, and waitlist — so your site does the admin work for you.</p>
+
+    <div class="drawer-section-title">What's included</div>
+    <ul class="drawer-features">
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in the Business Website</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 5 pages plus a dedicated Book Online page</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Interactive booking calendar with live availability display</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Service selector that updates the deposit amount in real time</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Booking system connected (e.g. Calendly, Fresha, Square) — customers book and pay deposit without calling you</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Waitlist form so you capture leads even when fully booked</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Instagram feed section (connects to your real account)</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Premium micro-animations and page transitions throughout</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Payment link set up on request</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 rounds of changes</li>
+      <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Delivered in 2–3 weeks</li>
+    </ul>
+
+    <div class="drawer-section-title">How it's better than the Business Website</div>
+    <p class="drawer-tagline" style="margin-bottom:0;">The core difference is automation. With a Business site, customers find you and then call or email to book. With a Booking-Ready site, they pick a time, pay a deposit, and get a confirmation — all without you being involved. If you run any kind of appointment-based business, this pays for itself fast.</p>
+
+    <div class="drawer-actions">
+      <a href="#contact" class="btn-drawer-primary" onclick="closeDrawer()">Get started — $1,299 &rarr;</a>
+      <a href="https://sitesbyriley.github.io/Tier-3-Demo/" target="_blank" rel="noopener" class="btn-drawer-demo">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        See a real example — demo site
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ── Scripts ────────────────────────────────────── -->
 <script>
   // Nav scroll effect
@@ -1237,6 +1563,21 @@
   document.querySelectorAll('.mobile-link, .mobile-menu .btn').forEach(el => {
     el.addEventListener('click', () => mobileMenu.classList.remove('open'));
   });
+
+  // Drawer
+  function openDrawer(id) {
+    document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+    document.getElementById(id).classList.add('open');
+    document.getElementById('drawer-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById(id).scrollTop = 0;
+  }
+  function closeDrawer() {
+    document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+    document.getElementById('drawer-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
 
   // Scroll reveal
