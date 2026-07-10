@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Booking-Ready Website — $1,299 | Sites By Riley</title>
+<meta name="description" content="A full multi-page website with online booking, live availability calendar, deposit calculator and waitlist. $1,299 one-time."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.tier-layout{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;}
+.tier-sticky{position:sticky;top:100px;}
+.price-card{background:var(--card);border:1.5px solid var(--blue);border-radius:var(--radius-lg);padding:32px 28px;box-shadow:0 0 0 1px var(--blue);}
+.price-card-price{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;letter-spacing:-0.03em;color:var(--white);line-height:1;}
+.price-card-price sup{font-size:26px;}
+.price-card-note{font-size:13px;color:var(--muted);margin-top:6px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.price-card-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.price-card-feats li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted-lt);}
+.price-card-feats li svg{color:var(--blue-lt);flex-shrink:0;margin-top:2px;}
+.price-card-btns{display:flex;flex-direction:column;gap:10px;}
+.btn-get-started{display:block;text-align:center;padding:15px;background:var(--blue);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;border-radius:var(--radius);transition:var(--tr);}
+.btn-get-started:hover{background:var(--blue-lt);transform:translateY(-1px);}
+.btn-see-demo{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;background:transparent;color:var(--muted);border:1px solid var(--border);font-family:'Syne',sans-serif;font-weight:600;font-size:14px;border-radius:var(--radius);transition:var(--tr);}
+.btn-see-demo:hover{color:var(--white);border-color:rgba(255,255,255,0.2);}
+.tier-content h2{font-size:clamp(24px,2.5vw,32px);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;margin-top:52px;}
+.tier-content h2:first-of-type{margin-top:0;}
+.tier-content p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:16px;}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin:20px 0;}
+.feat-list li{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--card);border-radius:var(--radius);border:1px solid var(--border);}
+.feat-list li svg{color:var(--blue-lt);flex-shrink:0;margin-top:1px;}
+.feat-list-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.feat-list-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+.booking-preview{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:24px 0;}
+.booking-preview-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 18px;display:flex;align-items:center;gap:8px;}
+.bp-dot{width:9px;height:9px;border-radius:50%;}
+.booking-preview-body{padding:22px;}
+.bp-month{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:12px;}
+.bp-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:14px;}
+.bp-day{text-align:center;padding:8px 4px;font-size:12px;color:var(--muted);border-radius:6px;}
+.bp-day.avail{color:var(--white);background:rgba(37,99,235,0.1);}
+.bp-day.sel{background:var(--blue);color:#fff;font-weight:700;}
+.bp-day.off{opacity:.25;}
+.bp-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.bp-slot{border:1px solid var(--border);border-radius:6px;padding:8px;text-align:center;font-size:12px;color:var(--muted);}
+.bp-slot.sel{background:var(--blue);color:#fff;border-color:var(--blue);}
+@media(max-width:900px){.tier-layout{grid-template-columns:1fr;}.tier-sticky{position:static;}}
+</style>
+</head>
+<body>
+<div id="page-veil"></div>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Sites<span>By</span>Riley</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get a quote</a></div>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <button class="mob-close" id="mob-close">✕</button>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary">Get a quote</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div><div class="page-hero-glow"></div>
+  <div class="container page-hero-content">
+    <div class="page-breadcrumb reveal"><a href="index.html">Home</a><span>/</span><a href="services.html">Services</a><span>/</span><span style="color:var(--white);">Booking-Ready Website</span></div>
+    <div class="tag reveal">Tier 3 — $1,299</div>
+    <h1 class="page-hero-title reveal d1">Booking-Ready<br><span>Website</span></h1>
+    <p class="page-hero-sub reveal d2">Everything in the Business tier, plus a live booking system. Customers pick a time, pay a deposit, and get a confirmation — all without you being involved.</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--black);">
+  <div class="container">
+    <div class="tier-layout">
+      <div class="tier-content">
+
+        <h2 class="reveal">What makes this different?</h2>
+        <p class="reveal d1">The core difference between this and the Business Website is automation. With a Business site, a customer finds you, sees your services, and then has to call or email to book. With a Booking-Ready site, they can pick a time, see what deposit is required, pay it, and get a confirmation — all from your website, any time of day.</p>
+        <p class="reveal d1">For appointment-based businesses — beauty therapists, personal trainers, tradies, tutors, anyone who works by the hour — this is the one that actually reduces your admin. You wake up with bookings already made while you were asleep.</p>
+
+        <!-- Mini calendar preview -->
+        <div class="booking-preview reveal d1">
+          <div class="booking-preview-bar">
+            <span class="bp-dot" style="background:#E8602C;"></span>
+            <span class="bp-dot" style="background:#F5B731;margin-left:4px;"></span>
+            <span class="bp-dot" style="background:#4ade80;margin-left:4px;"></span>
+            <span style="font-size:12px;color:var(--muted);margin-left:8px;font-family:'Syne',sans-serif;font-weight:600;">Live booking calendar — picks up your real availability</span>
+          </div>
+          <div class="booking-preview-body">
+            <div class="bp-month">July 2025 — Select a date</div>
+            <div class="bp-days">
+              <div class="bp-day off">Mo</div><div class="bp-day avail">Tu</div><div class="bp-day avail">We</div><div class="bp-day avail">Th</div><div class="bp-day avail">Fr</div><div class="bp-day avail">Sa</div><div class="bp-day off">Su</div>
+              <div class="bp-day off">-</div><div class="bp-day avail">1</div><div class="bp-day avail">2</div><div class="bp-day avail">3</div><div class="bp-day avail">4</div><div class="bp-day avail">5</div><div class="bp-day off">-</div>
+              <div class="bp-day avail">7</div><div class="bp-day avail">8</div><div class="bp-day avail">9</div><div class="bp-day avail">10</div><div class="bp-day avail">11</div><div class="bp-day sel">12</div><div class="bp-day off">-</div>
+            </div>
+            <div class="bp-slots">
+              <div class="bp-slot">9:00 am</div><div class="bp-slot sel">10:30 am</div><div class="bp-slot">12:00 pm</div>
+              <div class="bp-slot">1:30 pm</div><div class="bp-slot" style="opacity:.3;">3:00 pm</div><div class="bp-slot">4:30 pm</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="reveal">What's included</h2>
+        <ul class="feat-list reveal d1">
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Everything in the Business Website</div><div class="feat-list-desc">All the pages, reviews section, Google Maps, SEO basics, page transitions, 3 rounds of changes — all of it.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Dedicated Book Online page</div><div class="feat-list-desc">A separate page built entirely around the booking experience — not just a calendar thrown onto the contact page.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Live availability calendar</div><div class="feat-list-desc">Shows real available and unavailable dates based on your working hours. Closed days are greyed out, available days are clickable.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Real-time deposit calculator</div><div class="feat-list-desc">Customer selects their service, the deposit amount updates instantly on screen. No confusion, no back-and-forth about how much to pay.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Booking platform connected</div><div class="feat-list-desc">Connected to your booking system (Calendly, Fresha, Square, Timely or similar). Customers book and pay directly — no extra steps.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Waitlist form</div><div class="feat-list-desc">When you're fully booked, customers can join a waitlist instead of leaving. You capture the lead — they get contacted when something opens up.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Instagram feed section</div><div class="feat-list-desc">A grid that connects to your Instagram. Shows your most recent posts automatically — great for beauty, fitness, food and any visual business.</div></div></li>
+          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div><div class="feat-list-title">Payment link set up on request</div><div class="feat-list-desc">If you want to take actual payments (not just deposits) through the site, I can set up a Stripe or PayPal link as part of the build.</div></div></li>
+        </ul>
+
+        <h2 class="reveal">Who is this actually for?</h2>
+        <p class="reveal d1">Any business where customers need to book a time with you. Beauty therapists, lash artists, personal trainers, massage therapists, tutors, cleaners, tradies who work by appointment — anyone where the main action you want a visitor to take is "book a time."</p>
+        <p class="reveal d1">If your current system is "call me or send a DM and I'll check my calendar and get back to you" — this replaces all of that with something that works while you sleep.</p>
+
+      </div>
+      <div class="tier-sticky reveal d2">
+        <div class="price-card">
+          <div class="price-card-price"><sup>$</sup>1,299</div>
+          <div class="price-card-note">One-time payment · you own the files outright · 2–3 weeks delivery</div>
+          <ul class="price-card-feats">
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Business Website</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Live availability calendar</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Real-time deposit calculator</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Booking platform connected</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Waitlist form</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Instagram feed section</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 rounds of changes</li>
+            <li><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Files delivered · no lock-in</li>
+          </ul>
+          <div class="price-card-btns">
+            <a href="contact.html" class="btn-get-started">Get started — $1,299 →</a>
+            <a href="https://sitesbyriley.github.io/Tier-3-Demo/" target="_blank" rel="noopener" class="btn-see-demo"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>See the demo site</a>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding:16px;background:var(--card);border-radius:var(--radius);border:1px solid var(--border);">
+          <p style="font-size:13px;color:var(--muted);line-height:1.65;">Not sure if you need this tier? <a href="contact.html" style="color:var(--blue-lt);">Ask me</a> — I'll tell you honestly whether the booking system would actually make a difference for your business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container cta-inner">
+    <div><div class="cta-title">Ready to get started?</div><div class="cta-sub">Tell me about your business and I'll come back with a clear quote, same day.</div></div>
+    <a href="contact.html" class="btn-cta-white">Get a free quote →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand-name">Sites<span>By</span>Riley</div><p class="footer-desc">Web design by Riley Geddes, Brisbane.</p></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="tier1.html">Personal Profile Site</a></li><li><a href="tier2.html">Business Website</a></li><li><a href="tier3.html">Booking-Ready Website</a></li><li><a href="services.html">Compare all tiers</a></li></ul></div>
+      <div><div class="footer-col-title">Site</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Riley</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:0403939515">0403 939 515</a></li><li><a href="mailto:sitesbyriley@gmail.com">sitesbyriley@gmail.com</a></li><li><span style="color:var(--muted)">Brisbane, QLD</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Sites By Riley — Riley Geddes, Brisbane</span><span>Built with care. No templates were harmed.</span></div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Services & Pricing — Sites By Riley</title>
+<meta name="description" content="Three tiers of web design from Sites By Riley. Personal Profile ($349), Business Website ($799), or Booking-Ready ($1,299). All one-time payments."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.tier-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:var(--tr);}
+.tier-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(37,99,235,0.12);}
+.tier-card.featured{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue);}
+.tier-card-top{padding:32px 28px 24px;border-bottom:1px solid var(--border);}
+.tier-badge{display:inline-block;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--blue);color:#fff;padding:4px 10px;border-radius:100px;margin-bottom:16px;}
+.tier-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--white);margin-bottom:8px;}
+.tier-desc{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:20px;}
+.tier-price{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1;}
+.tier-price sup{font-size:24px;font-weight:600;}
+.tier-price-note{font-size:12px;color:var(--muted);margin-top:6px;}
+.tier-card-body{padding:28px;flex:1;display:flex;flex-direction:column;}
+.tier-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;flex:1;}
+.tier-feats li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted-lt);line-height:1.5;}
+.tier-feats li svg{color:var(--blue-lt);flex-shrink:0;margin-top:2px;}
+.tier-card-btns{display:flex;flex-direction:column;gap:8px;}
+.btn-tier-main{display:block;text-align:center;padding:14px;background:var(--blue);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;border-radius:var(--radius);transition:var(--tr);}
+.btn-tier-main:hover{background:var(--blue-lt);transform:translateY(-1px);}
+.btn-tier-detail{display:block;text-align:center;padding:12px;background:transparent;color:var(--muted);border:1px solid var(--border);font-family:'Syne',sans-serif;font-weight:600;font-size:13px;border-radius:var(--radius);transition:var(--tr);}
+.btn-tier-detail:hover{border-color:rgba(255,255,255,0.2);color:var(--white);}
+.btn-tier-demo{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:transparent;color:var(--muted);border:1px solid var(--border);font-size:13px;border-radius:var(--radius);transition:var(--tr);}
+.btn-tier-demo:hover{border-color:var(--blue-lt);color:var(--blue-lt);}
+@media(max-width:768px){.compare-grid{grid-template-columns:1fr;}}
+
+/* Comparison table */
+.comp-table-wrap{margin-top:80px;overflow-x:auto;}
+.comp-table{width:100%;border-collapse:collapse;min-width:600px;}
+.comp-table th{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-align:left;padding:16px 20px;color:var(--white);border-bottom:1px solid var(--border);}
+.comp-table th:not(:first-child){text-align:center;}
+.comp-table td{padding:14px 20px;font-size:14px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,0.04);}
+.comp-table td:not(:first-child){text-align:center;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table .cat-row td{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-lt);background:rgba(37,99,235,0.06);padding:10px 20px;}
+.tick{color:var(--blue-lt);font-size:18px;}
+.cross{color:rgba(255,255,255,0.15);font-size:16px;}
+.tier-col-hdr{font-size:13px!important;color:var(--muted)!important;padding-top:8px!important;}
+</style>
+</head>
+<body>
+<div id="page-veil"></div>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Sites<span>By</span>Riley</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get a quote</a></div>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <button class="mob-close" id="mob-close">✕</button>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary">Get a quote</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div><div class="page-hero-glow"></div>
+  <div class="container page-hero-content">
+    <div class="page-breadcrumb reveal"><a href="index.html">Home</a><span>/</span><span style="color:var(--white);">Services</span></div>
+    <h1 class="page-hero-title reveal d1">Services &<br><span>Pricing</span></h1>
+    <p class="page-hero-sub reveal d2">Three tiers. One-time payments. You own the files outright — no lock-in, no subscriptions, no surprises.</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--black);">
+  <div class="container">
+    <div class="compare-grid">
+
+      <div class="tier-card reveal d1">
+        <div class="tier-card-top">
+          <span class="tier-badge">Tier 1</span>
+          <div class="tier-name">Personal Profile Site</div>
+          <div class="tier-desc">A clean single-page site all about you — great for freelancers, creatives and sole traders who need a professional online presence.</div>
+          <div class="tier-price"><sup>$</sup>349</div>
+          <div class="tier-price-note">one-time · you own the files · ~5 days</div>
+        </div>
+        <div class="tier-card-body">
+          <ul class="tier-feats">
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Single-page, up to 5 sections</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Built from scratch, not a template</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fully mobile-responsive</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Contact form included</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Scroll animations & hover effects</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>2 rounds of changes</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Files delivered, deploy anywhere</li>
+          </ul>
+          <div class="tier-card-btns">
+            <a href="contact.html" class="btn-tier-main">Get started →</a>
+            <a href="tier1.html" class="btn-tier-detail">Full details</a>
+            <a href="https://sitesbyriley.github.io/Tier-1-Demo/" target="_blank" rel="noopener" class="btn-tier-demo"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Live demo site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-card featured reveal d2">
+        <div class="tier-card-top">
+          <span class="tier-badge">Tier 2 — Most popular</span>
+          <div class="tier-name">Business Website</div>
+          <div class="tier-desc">A proper multi-page site for your business — structure, credibility, and everything a customer needs to trust you and get in touch.</div>
+          <div class="tier-price"><sup>$</sup>799</div>
+          <div class="tier-price-note">one-time · you own the files · 1–2 weeks</div>
+        </div>
+        <div class="tier-card-body">
+          <ul class="tier-feats">
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Up to 5 separate pages</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Built from scratch, not a template</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fully mobile-responsive</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Google reviews section</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Contact form & Google Maps</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Page titles & meta descriptions (SEO)</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Scroll animations & transitions</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 rounds of changes</li>
+          </ul>
+          <div class="tier-card-btns">
+            <a href="contact.html" class="btn-tier-main">Get started →</a>
+            <a href="tier2.html" class="btn-tier-detail">Full details</a>
+            <a href="https://sitesbyriley.github.io/Tier-2-Demo/" target="_blank" rel="noopener" class="btn-tier-demo"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Live demo site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier-card reveal d3">
+        <div class="tier-card-top">
+          <span class="tier-badge">Tier 3</span>
+          <div class="tier-name">Booking-Ready Website</div>
+          <div class="tier-desc">Everything in the Business tier plus a live booking system — customers can book and pay a deposit without ever calling you.</div>
+          <div class="tier-price"><sup>$</sup>1,299</div>
+          <div class="tier-price-note">one-time · you own the files · 2–3 weeks</div>
+        </div>
+        <div class="tier-card-body">
+          <ul class="tier-feats">
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Everything in Business Website</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dedicated Book Online page</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Live availability calendar</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Deposit calculator (updates in real time)</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Booking system connected (Calendly etc.)</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Waitlist form (captures leads when full)</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Instagram feed section</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Payment link set up on request</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 rounds of changes</li>
+          </ul>
+          <div class="tier-card-btns">
+            <a href="contact.html" class="btn-tier-main">Get started →</a>
+            <a href="tier3.html" class="btn-tier-detail">Full details</a>
+            <a href="https://sitesbyriley.github.io/Tier-3-Demo/" target="_blank" rel="noopener" class="btn-tier-demo"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Live demo site</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Comparison table -->
+    <div class="comp-table-wrap reveal" style="margin-top:80px;">
+      <h2 class="section-title reveal" style="margin-bottom:32px;">Feature comparison</h2>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Personal<br><span class="tier-col-hdr">$349</span></th>
+            <th>Business<br><span class="tier-col-hdr">$799</span></th>
+            <th>Booking-Ready<br><span class="tier-col-hdr">$1,299</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4">Site structure</td></tr>
+          <tr><td>Mobile-responsive design</td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Built from scratch (no templates)</td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Number of pages</td><td>1 page</td><td>Up to 5</td><td>Up to 6</td></tr>
+          <tr><td>Scroll animations</td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Page transitions</td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr class="cat-row"><td colspan="4">Content & features</td></tr>
+          <tr><td>Contact form</td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Google reviews section</td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Google Maps embed</td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Instagram feed section</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>SEO (page titles & meta descriptions)</td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr class="cat-row"><td colspan="4">Booking system</td></tr>
+          <tr><td>Dedicated booking page</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Live availability calendar</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Real-time deposit calculator</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Booking platform connected</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Waitlist form</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Payment link set up</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td>On request</td></tr>
+          <tr class="cat-row"><td colspan="4">Delivery</td></tr>
+          <tr><td>Rounds of changes</td><td>2</td><td>3</td><td>3</td></tr>
+          <tr><td>Delivery time</td><td>~5 days</td><td>1–2 weeks</td><td>2–3 weeks</td></tr>
+          <tr><td>Files delivered (you own them)</td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+          <tr><td>Help getting it live</td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="reveal" style="text-align:center;margin-top:40px;font-size:14px;color:var(--muted);">
+      Not sure which tier fits your situation? <a href="contact.html" style="color:var(--blue-lt);font-weight:600;">Just ask — I'll be straight with you.</a>
+    </p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container cta-inner">
+    <div><div class="cta-title">Ready to get started?</div><div class="cta-sub">Tell me about your business and I'll come back with a clear quote, same day.</div></div>
+    <a href="contact.html" class="btn-cta-white">Get a free quote →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand-name">Sites<span>By</span>Riley</div><p class="footer-desc">Web design by Riley Geddes, Brisbane.</p><div class="footer-socials"><a href="#" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="mailto:sitesbyriley@gmail.com" class="footer-social" aria-label="Email"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a></div></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="tier1.html">Personal Profile Site</a></li><li><a href="tier2.html">Business Website</a></li><li><a href="tier3.html">Booking-Ready Website</a></li><li><a href="services.html">Compare all tiers</a></li></ul></div>
+      <div><div class="footer-col-title">Site</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Riley</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:0403939515">0403 939 515</a></li><li><a href="mailto:sitesbyriley@gmail.com">sitesbyriley@gmail.com</a></li><li><span style="color:var(--muted)">Brisbane, QLD</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Sites By Riley — Riley Geddes, Brisbane</span><span>Built with care. No templates were harmed.</span></div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
